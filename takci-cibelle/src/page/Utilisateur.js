@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import logo from "../assets/logo2_3.png";
-import {FaPhone} from "react-icons/fa";
-import imaget from "../assets/user_takci.jpg"
+
+import {FaPhone ,FaArrowDown} from "react-icons/fa";
+import Headerpage from "./Headerpage";
+import Footerpage from "./Footerpage";
 
 
  function Utilisateur() {
@@ -59,93 +60,29 @@ import imaget from "../assets/user_takci.jpg"
   ];
 
   return (
-    <div className="min-h-screen flex flex-col  bg-blue-800">
+     <div className="min-h-screen flex flex-col ">
       {/* Header */}
-      <header className="bg-blue-800 text-white px-8 py-4 flex items-center justify-between">
-        <div className="container mx-auto flex items-center justify-between p-4">
-          <a href="/" className="flex items-center justify-between">
-            <img src={logo} alt="Takci" className="h-10 mr-12" />
-          </a>
-         <nav>
-      <ul className="flex gap-4 items-center">
-        <li>
-          <a
-            href="/"
-            onClick={() => setActive("accueil")}
-            className={`px-2 py-1 ${active === "accueil" ? "border-b-4 border-yellow-400" : ""} hover:text-yellow-400`}
-          >
-            Accueil
-          </a>
-        </li>
-        <li>
-          <a
-            href="/driver"
-            onClick={() => setActive("takciPro")}
-            className={`px-2 py-1 ${active === "takciPro" ? "border-b-4 border-yellow-400" : ""} hover:text-yellow-400`}
-          >
-            Takci Pro
-          </a>
-        </li>
-        <li>
-          <a
-            href="/utilisateur"
-            onClick={() => setActive("utilisateur")}
-            className={`px-2 py-1 ${active === "utilisateur" ? "border-b-4 border-yellow-400" : ""} hover:text-yellow-400`}
-          >
-            Utilisateur
-          </a>
-        </li>
-        <li>
-          <a
-            href="/evenement"
-            onClick={() => setActive("evenement")}
-            className={`px-2 py-1 ${active === "evenement" ? "border-b-4 border-yellow-400" : ""} hover:text-yellow-400`}
-          >
-            Évènement
-          </a>
-        </li>
-        <li>
-          <a
-            href="/aide"
-            onClick={() => setActive("aide")}
-            className={`px-2 py-1 ${active === "aide" ? "border-b-4 border-yellow-400" : ""} hover:text-yellow-400`}
-          >
-            Aide
-          </a>
-        </li>
-        <li>
-          <a
-            href="/contact"
-            onClick={() => setActive("contact")}
-            className={`px-2 py-1 ${active === "contact" ? "border-b-4 border-yellow-400" : ""} hover:text-yellow-400`}
-          >
-            Contacts
-          </a>
-        </li>
-        <li className="flex items-center gap-1 ml-4">
-          <FaPhone size={20} />
-          <span>01 55 55 65 65</span>
-        </li>
-      </ul>
-    </nav>
-        </div>
-      </header>
+      <Headerpage />
 
       {/* HERO */}
-     <section className="relative h-[60vh] flex items-center justify-center text-center mt-16">
+     <section className="relative h-[60vh] flex items-center justify-center text-center ">
   {/* Image en arrière-plan */}
+  
   <img
-    src={imaget}
-    alt="Takci"
+    src="/assets/img/user_takci.jpg" alt="Utilisateur Takci"
     className="absolute inset-0 w-full h-full object-cover"
   />
+  
 
   <div className="relative z-10">
-    <h1 className="text-4xl md:text-5xl font-bold text-white">Utilisateur</h1>
+    <h1 className="text-4xl md:text-5xl font-bold text-white underline decoration-yellow-500 ">Utilisateur</h1>
+     
     <a href="#details" className="mt-10 inline-block">
-      <div className="w-16 h-16 rounded-full border-4 border-white flex items-center justify-center animate-bounce">
-        ⬇
-      </div>
+      <div className="absolute w-20 h-20 bg-yellow-400 rounded-full blur-xl opacity-50"></div>
+       <button className="relative w-16 h-16 bg-blue-800 rounded-full flex items-center justify-center text-white">
+           <FaArrowDown className="text-xl" />
+  </button>   
+
     </a>
   </div>
 
@@ -170,16 +107,16 @@ import imaget from "../assets/user_takci.jpg"
   </div>
 </section>
       {/* POURQUOI CHOISIR */}
-      <section id="details" className="py-12 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4">
-          <h3 className="text-2xl font-bold mb-4">
-            Pourquoi choisir Takci pour vos déplacements ?
-          </h3>
-          <p className="leading-relaxed">
-            Les déplacements deviennent une expérience sans tracas avec Takci, votre compagnon de voyage idéal...
-          </p>
-        </div>
-      </section>
+      <section className="bg-blue-50 py-8 px-6 mt-12 ">
+  <div className="max-w-4xl mx-auto">
+    <h2 className="text-2xl font-bold text-blue-900 mb-4">
+      Pourquoi choisir Takci pour vos déplacements ?
+    </h2>
+    <p className="text-gray-600 leading-relaxed text-justify">
+      Les déplacements deviennent une expérience sans tracas avec Takci, votre compagnon de voyage idéal. Nous comprenons que chaque déplacement est unique, c'est pourquoi nous mettons à votre disposition un service de taxi exceptionnel pour répondre à vos besoins professionnels et personnels. En choisissant Takci pour vos déplacements, vous bénéficiez d'une expérience de voyage exceptionnelle. Premièrement, votre confidentialité et votre sécurité sont notre priorité absolue. Les données que vous partagez avec nous sont traitées de manière confidentielle, garantissant ainsi la protection de vos informations personnelles. De plus, nos chauffeurs, tous des professionnels qualifiés, vous assurent un voyage sûr et confortable. Takci met l'accent sur la qualité du service, faisant de chaque déplacement une expérience digne de confiance. En outre, avec la possibilité de partager votre position en temps réel, Takci offre un niveau supplémentaire de sécurité. Cette fonctionnalité rassurante permet à vos proches de suivre votre trajet, renforçant ainsi la tranquillité d'esprit pendant le voyage. Enfin, notre assistance 24/7 garantit une présence continue tout au long de votre parcours. Que ce soit pour des questions, des conseils ou un support technique, l'équipe Takci est toujours là pour vous, assurant un accompagnement constant lors de vos déplacements. Optez pour Takci et transformez vos voyages en une expérience sans soucis.
+    </p>
+  </div>
+</section>
 
       {/* ETAPES COURSE */}
       <section className="py-12 bg-white">
@@ -232,78 +169,37 @@ import imaget from "../assets/user_takci.jpg"
             <h3 className="text-xl font-semibold">{deliverySteps.find(s => s.id === activeDeliveryStep).title}</h3>
             <div className="mt-2 text-gray-700">
               {deliverySteps.find(s => s.id === activeDeliveryStep).content}
+              <div className="flex-1">
+          <div className="flex flex-col md:flex-row gap-8">
+  {/* Conteneur de l'image - sur le côté à partir de md (768px) */}
+  <div className="md:w-1/2">
+    <div className="bg-white p-6 rounded-lg shadow-ml sticky top-8">
+      <h2 className="text-xl font-bold mb-4">Interface originale</h2>
+      <img 
+        src="/assets/img/im1.png"
+        alt="Capture d'écran de l'interface TAKCI"
+        className="w-full h-auto border border-gray-200 rounded object-cover"
+      />
+    </div>
+  </div>
+
+  {/* Conteneur du contenu - sur le côté à partir de md */}
+  <div className="md:w-1/2">
+    {/* Votre contenu texte/formulaire ici */}
+    <div className="bg-white p-6 rounded-lg shadow-md">
+      <h1 className="text-2xl font-bold mb-4">Inscription</h1>
+      {/* ... reste de votre contenu ... */}
+    </div>
+  </div>
+</div>
+        </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer intégré après la recherche */}
-        <footer className="bg-blue-800 text-white px-8 py-4 mt-auto">
-          <div className="container mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
-      {/* Footer About / Logo */}
-            <div className="md:col-span-4 flex flex-col items-start space-y-4">
-              <a href="/" className="flex items-center">
-                
-                  <img src={logo} alt="Takci" className="h-10" />
-              
-              </a>
-              <div className="space-y-2">
-                <p>Si vous avez des questions ou si vous avez besoin d'aide, n'hésitez pas à contacter notre équipe.</p>
-                <p>
-                  <strong>Contact:</strong> <span>+229 00 00 00 00</span>
-                </p>
-                <p>
-                  <strong>Email:</strong> <span>marktech@example.com</span>
-                </p>
-              </div>
-              <div className="flex space-x-4 mt-4 text-2xl">
-                <a href="/evenement"><i className="bi bi-twitter"></i></a>
-                <a href="/evenement"><i className="bi bi-facebook"></i></a>
-                <a href="/evenement"><i className="bi bi-instagram"></i></a>
-                <a href="/evenement"><i className="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-
-            {/* Takci Pro Links */}
-            <div className="md:col-span-2">
-              <h4 className="font-bold mb-4">Takci Pro</h4>
-              <ul className="space-y-2">
-                <li><a href="/evenement" className="hover:underline">Conduire sur Takci</a></li>
-                <li>
-                  <a href="Formulaire1.html" className="bg-yellow-500 text-white px-3 py-1 rounded inline-block mt-2">
-                    Conduire
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Utilisateur Links */}
-            <div className="md:col-span-2">
-              <h4 className="font-bold mb-4">Utilisateur</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:underline">Se déplacer avec Takci</a></li>
-                <li><a href="#" className="hover:underline">Conditions générales d'utilisation</a></li>
-              </ul>
-            </div>
-
-            {/* Newsletter / Contacts */}
-            <div className="md:col-span-4">
-              <h4 className="font-bold mb-4">Contacts</h4>
-              <p className="mb-4">Subscribe to our newsletter and receive the latest news about our products and services!</p>
-              <a href="#" className="bg-yellow-500  text-white px-4 py-2 rounded inline-flex items-center gap-2">
-                <i className="icon-download"></i>
-                <span>Télécharger PDF</span>
-               
-              </a>
-            </div>
-
-          </div>
-           <div className="bg-blue-800 text-white px-8 py-4 flex-col items-center text-center space-y-1">
-                   <p>© 2024 Takci - Tout droit réservé</p>
-                   <p>Conçu & développé par MARKTECH</p>
-                </div>
-          
-        </footer>
+       <Footerpage/>
     </div>
     
   );

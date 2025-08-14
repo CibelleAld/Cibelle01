@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo2_3.png";
-import { FaPhone } from "react-icons/fa";
-import Image from "../assets/user_aide.jpg";
+import { FaPhone,FaArrowDown } from "react-icons/fa";
+import Headerpage from "./Headerpage";
+import Footerpage from "./Footerpage";
+
 
 function Aide() {
   const [role, setRole] = useState(null);
@@ -70,96 +71,31 @@ function Aide() {
       
       >
       {/* Header */}
-      <header className="bg-blue-800 text-white px-8 py-4 flex items-center justify-between">
-        <div className="container mx-auto flex items-center justify-between p-4">
-          <Link to="/" className="flex items-center justify-between">
-            <img src={logo} alt="Takci" className="h-10 mr-12" />
-          </Link>
-          <nav>
-            <ul className="flex gap-4 items-center">
-              <li>
-                <Link
-                  to="/"
-                  onClick={() => setActive("accueil")}
-                  className={`px-2 py-1 ${active === "accueil" ? "border-b-4 border-yellow-400" : ""} hover:text-yellow-400`}
-                >
-                  Accueil
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/driver"
-                  onClick={() => setActive("takciPro")}
-                  className={`px-2 py-1 ${active === "takciPro" ? "border-b-4 border-yellow-400" : ""} hover:text-yellow-400`}
-                >
-                  Takci Pro
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/utilisateur"
-                  onClick={() => setActive("utilisateur")}
-                  className={`px-2 py-1 ${active === "utilisateur" ? "border-b-4 border-yellow-400" : ""} hover:text-yellow-400`}
-                >
-                  Utilisateur
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/evenement"
-                  onClick={() => setActive("evenement")}
-                  className={`px-2 py-1 ${active === "evenement" ? "border-b-4 border-yellow-400" : ""} hover:text-yellow-400`}
-                >
-                  Évènement
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/aide"
-                  onClick={() => setActive("aide")}
-                  className={`px-2 py-1 ${active === "aide" ? "border-b-4 border-yellow-400" : ""} hover:text-yellow-400`}
-                >
-                  Aide
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  onClick={() => setActive("contact")}
-                  className={`px-2 py-1 ${active === "contact" ? "border-b-4 border-yellow-400" : ""} hover:text-yellow-400`}
-                >
-                  Contacts
-                </Link>
-              </li>
-              <li className="flex items-center gap-1 ml-4">
-                <FaPhone size={20} />
-                <span>01 55 55 65 65</span>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+     <Headerpage />
 
       {/* Hero Section */}
       <main className="bg-gray-900 text-white min-h-screen flex flex-col">
-      <section
-        className="relative flex flex-col items-center justify-center min-h-[60vh] text-center bg-cover bg-center"
-        style={{ backgroundImage: `url(${Image})` }}
-      >
-        {/* Overlay sombre */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-
-        {/* Texte au-dessus */}
-        <h1 className="text-3xl font-bold z-10 mt-10">
-          Comment pouvons-nous vous aider ?
-        </h1>
-        <div className="mt-10 z-10">
-          <a href="#faq" className="inline-block rounded-full bg-white p-3">
-            <span className="text-black text-2xl">↓</span>
+       <section className="relative h-[60vh] flex items-center justify-center text-center ">
+        {/* Image en arrière-plan */}
+        
+        <img
+          src="/assets/img/user_aide.jpg" alt="Utilisateur Takci"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        
+      
+        <div className="relative z-10">
+          <h1 className="text-4xl md:text-5xl font-bold text-white underline decoration-yellow-500 ">Comment pouvons-nous vous aider</h1>
+           
+          <a href="#details" className="mt-10 inline-block">
+            <div className="absolute w-20 h-20 bg-yellow-400 rounded-full blur-xl opacity-50"></div>
+             <button className="relative w-16 h-16 bg-blue-800 rounded-full flex items-center justify-center text-white">
+                 <FaArrowDown className="text-xl" />
+        </button>   
+      
           </a>
         </div>
-       
-      </section>
+        </section>
          {/* Choix de rôle */}
 
         <div
@@ -218,73 +154,7 @@ function Aide() {
 
       
        {/* Footer */}
-       {/* Footer intégré après la recherche */}
-        <footer className="bg-blue-800 text-white px-8 py-4 mt-auto">
-          <div className="container mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
-      {/* Footer About / Logo */}
-            <div className="md:col-span-4 flex flex-col items-start space-y-4">
-              <a href="/" className="flex items-center">
-                
-                  <img src={logo} alt="Takci" className="h-10" />
-              
-              </a>
-              <div className="space-y-2">
-                <p>Si vous avez des questions ou si vous avez besoin d'aide, n'hésitez pas à contacter notre équipe.</p>
-                <p>
-                  <strong>Contact:</strong> <span>+229 00 00 00 00</span>
-                </p>
-                <p>
-                  <strong>Email:</strong> <span>marktech@example.com</span>
-                </p>
-              </div>
-              <div className="flex space-x-4 mt-4 text-2xl">
-                <a href="/evenement"><i className="bi bi-twitter"></i></a>
-                <a href="/evenement"><i className="bi bi-facebook"></i></a>
-                <a href="/evenement"><i className="bi bi-instagram"></i></a>
-                <a href="/evenement"><i className="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-
-            {/* Takci Pro Links */}
-            <div className="md:col-span-2">
-              <h4 className="font-bold mb-4">Takci Pro</h4>
-              <ul className="space-y-2">
-                <li><a href="/evenement" className="hover:underline">Conduire sur Takci</a></li>
-                <li>
-                  <a href="Formulaire1.html" className="bg-yellow-500 text-white px-3 py-1 rounded inline-block mt-2">
-                    Conduire
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Utilisateur Links */}
-            <div className="md:col-span-2">
-              <h4 className="font-bold mb-4">Utilisateur</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:underline">Se déplacer avec Takci</a></li>
-                <li><a href="#" className="hover:underline">Conditions générales d'utilisation</a></li>
-              </ul>
-            </div>
-
-            {/* Newsletter / Contacts */}
-            <div className="md:col-span-4">
-              <h4 className="font-bold mb-4">Contacts</h4>
-              <p className="mb-4">Subscribe to our newsletter and receive the latest news about our products and services!</p>
-              <a href="#" className="bg-yellow-500  text-white px-4 py-2 rounded inline-flex items-center gap-2">
-                <i className="icon-download"></i>
-                <span>Télécharger PDF</span>
-               
-              </a>
-            </div>
-
-          </div>
-           <div className="bg-blue-800 text-white px-8 py-4 flex-col items-center text-center space-y-1">
-                   <p>© 2024 Takci - Tout droit réservé</p>
-                   <p>Conçu & développé par MARKTECH</p>
-                </div>
-          
-        </footer>
+           <Footerpage />
         </main>
     </div>
     
