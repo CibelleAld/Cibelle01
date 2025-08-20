@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 import Headerpage from "./Headerpage";
 import Footerpage from "./Footerpage";
 import Scrolltop from "./Scrolltop";
+import Vagueanimmee from "./Vagueanimmee";
 
 export default function Accueil() {
   useEffect(() => {
@@ -165,41 +166,14 @@ export default function Accueil() {
                   >
                     Commencer
                   </a>
+                  
                 </div>
               </div>
             </div>
+            
           </div>
-
-          {/* Waves SVG */}
-          <div className="absolute bottom-0 w-full h-40 overflow-hidden max-w-full">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-full max-w-full">
-              <path
-                d="M-200,100 C-50,80 150,120 350,90 C550,60 750,110 950,80 C1150,50 1350,100 1400,90 L1400,120 L-200,120 Z"
-                className="fill-white opacity-30"
-              />
-              <path
-                d="M-200,108 C-50,95 150,125 350,105 C550,85 750,115 950,100 C1150,85 1350,110 1400,100 L1400,120 L-200,120 Z"
-                className="fill-white opacity-60"
-              />
-              <path
-                d="M-200,112 C-50,108 150,122 350,115 C550,108 750,120 950,115 C1150,110 1350,118 1400,115 L1400,120 L-200,120 Z"
-                className="fill-white"
-              />
-            </svg>
-
-            <style jsx>{`
-              path { shape-rendering: geometricPrecision; }
-              path:nth-child(1) { animation: waveFlow 16s cubic-bezier(0.4,0,0.2,1) -3s infinite; }
-              path:nth-child(2) { animation: waveFlow 14s cubic-bezier(0.4,0,0.2,1) -1s infinite; }
-              path:nth-child(3) { animation: waveFlow 12s cubic-bezier(0.4,0,0.2,1) infinite; }
-              @keyframes waveFlow {
-                0%,100% { transform: translateX(0) translateY(0); }
-                25% { transform: translateX(-10%) translateY(-2px); }
-                50% { transform: translateX(-10%) translateY(0); }
-                75% { transform: translateX(-50%) translateY(2px); }
-              }
-            `}</style>
-          </div>
+             <Vagueanimmee />
+          
         </section>
                
         {/* Stats Section */}

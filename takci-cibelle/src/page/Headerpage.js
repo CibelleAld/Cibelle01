@@ -3,7 +3,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import { FaPhone } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-// Styles
 import "aos/dist/aos.css";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -14,12 +13,12 @@ export default function Headerpage() {
 
   const itemsLink = useMemo(
     () => [
-      { href: "/Accueil", label: "Accueil", key: "accueil" },
-      { href: "/Taksipro", label: "Takci Pro", key: "Taksipro" },
-      { href: "/utilisateur", label: "Utilisateur", key: "utilisateur" },
-      { href: "/evenement", label: "Évènement", key: "evenement" },
-      { href: "/aide", label: "Aide", key: "aide" },
-      { href: "/contact", label: "Contacts", key: "contact" }
+      { href: "/Accueil", label: "Accueil", key: "accueil", highlight: 3 }, // "Acc"
+      { href: "/Taksipro", label: "Takci Pro", key: "Taksipro", highlight: 4 }, // "Takc"
+      { href: "/utilisateur", label: "Utilisateur", key: "utilisateur", highlight: 4 }, // "Util"
+      { href: "/evenement", label: "Évènement", key: "evenement", highlight: 3 }, // "Évé"
+      { href: "/aide", label: "Aide", key: "aide", highlight: 2 }, // "Ai"
+      { href: "/contact", label: "Contacts", key: "contact", highlight: 3 } // "Con"
     ],
     []
   );
@@ -60,27 +59,41 @@ export default function Headerpage() {
                 menuOpen ? "block" : "hidden"
               } w-auto px-4 py-2 rounded md:static`}
             >
-              {itemsLink.map(({ href, label, key }) => (
-                <li
-                  key={key}
-                  className="md:border-none border-b border-blue-800 md:mb-0 mb-2"
-                >
-                  <Link
-                    to={href}
-                    onClick={() => setActive(key)}
-                    className={`block px-4 py-2 ${
-                      active === key
-                        ? "border-b-4 border-yellow-400 md:border-none"
-                        : ""
-                    } hover:text-yellow-400 transition`}
+              {itemsLink.map(({ href, label, key, highlight }) => {
+                const highlighted = label.slice(0, highlight);
+                const rest = label.slice(highlight);
+                return (
+                  <li
+                    key={key}
+                    className="md:border-none border-b border-blue-800 md:mb-0 mb-2"
                   >
-                    {label}
-                  </Link>
-                </li>
-              ))}
+                    <Link
+                      to={href}
+                      onClick={() => setActive(key)}
+                      className={`relative block px-4 py-2 transition ${
+                        active === key ? "font-semibold text-white" : "hover:text-yellow-400"
+                      }`}
+                    >
+                      {/* Partie soulignée */}
+                      <span
+                        className={`relative ${
+                          active === key
+                            ? "after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-1 after:bg-yellow-400 after:rounded-md"
+                            : ""
+                        }`}
+                      >
+                        {highlighted}
+                      </span>
+                      {/* Reste du mot */}
+                      {rest}
+                    </Link>
+                  </li>
+                );
+              })}
 
               {/* Numéro de téléphone horizontal */}
               <li className="flex items-center gap-2 px-4 py-2 md:ml-4 md:mr-20">
+                <FaPhone className="text-yellow-400" />
                 <span>01 55 55 65 65</span>
               </li>
             </ul>
@@ -90,7 +103,7 @@ export default function Headerpage() {
 
       {/* Contenu principal avec padding pour header fixe */}
       <div className="pt-24">
-        {/* Ton contenu ici */}
+        
       </div>
     </>
   );

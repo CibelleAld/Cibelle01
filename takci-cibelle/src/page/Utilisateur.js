@@ -4,6 +4,8 @@ import {FaPhone ,FaArrowDown} from "react-icons/fa";
 import Headerpage from "./Headerpage";
 import Footerpage from "./Footerpage";
 import Scrolltop from "./Scrolltop";
+import { FaCheck} from "react-icons/fa";
+import VagueAnimee from "./Vagueanimmee";
 
 
  function Utilisateur() {
@@ -11,54 +13,104 @@ import Scrolltop from "./Scrolltop";
   const [activeDeliveryStep, setActiveDeliveryStep] = useState(1);
    const [active, setActive] = useState("utilisateur");
 
-  const courseSteps = [
-    { id: 1, title: "Inscription", content: (
-        <div>
-          <ul className="list-disc ml-5">
-            <li>Remplissez les informations demandées</li>
-            <li>Vérifiez votre numéro de téléphone</li>
-          </ul>
-          <p>Connectez-vous ensuite pour accéder à Takci.</p>
-        </div>
-      )
-    },
-    { id: 2, title: "Type de course", content: (
+ const courseSteps = [
+  { 
+    id: 1,
+    wizardTitle: "Le client ouvre l'application", // pour le wizard
+    title: "Inscription", // pour le contenu détaillé
+    content: (
+      <div>
         <ul className="list-disc ml-5">
-          <li>Zémidjan</li>
-          <li>Tricycle</li>
-          <li>Voiture</li>
+          <p><FaCheck className=" inline-block text-yellow-500 "/>Remplissez les informations demandées</p>
+          <p><FaCheck className=" inline-block text-yellow-500 "/>Vérifiez votre numéro de téléphone</p>
         </ul>
-      )
-    },
-    { id: 3, title: "Destination", content: <p>Choisissez votre lieu de destination.</p> },
-    { id: 4, title: "Paiement", content: <p>Sélectionnez votre mode de paiement.</p> },
-    { id: 5, title: "Notation", content: <p>Le chauffeur et le client s'attribuent mutuellement une note et un commentaire (facultatif).</p> },
-  ];
-
-  const deliverySteps = [
-    { id: 1, title: "Inscription", content: (
-        <div>
-          <ul className="list-disc ml-5">
-            <li>Remplissez les informations demandées</li>
-            <li>Vérifiez votre numéro de téléphone</li>
-          </ul>
-          <p>Connectez-vous ensuite pour accéder à Takci.</p>
-        </div>
-      )
-    },
-    { id: 2, title: "Type de livraison", content: (
+        <p className="list-disc ml-5"><FaCheck className=" inline-block text-yellow-500 "/>Connectez-vous ensuite pour accéder à Takci.</p>
+      </div>
+    )
+  },
+  { 
+    id: 2, 
+    wizardTitle: "Le client est mis en relation avec un chauffeur",
+    title: "Type de course",
+    content: (
+      <ul className="list-disc ml-5">
+        <p><FaCheck className=" inline-block text-yellow-500 "/>Zémidjan</p>
+        <p><FaCheck className=" inline-block text-yellow-500 "/>Tricycle</p>
+        <p><FaCheck className=" inline-block text-yellow-500 "/>Voiture</p>
+      </ul>
+    )
+  },
+  { 
+    id: 3, 
+    wizardTitle: "Le chauffeur prend en charge le client",
+    title: "Destination",
+    content: <p><FaCheck className=" inline-block text-yellow-500 "/>Choisissez votre lieu de destination.</p>
+  },
+  { 
+    id: 4, 
+    wizardTitle: "Le chauffeur conduit son client à destination",
+    title: "Paiement",
+    content: <p><FaCheck className=" inline-block text-yellow-500 "/>Sélectionnez votre mode de paiement.</p>
+  },
+  { 
+    id: 5, 
+    wizardTitle: "Le chauffeur et le client s'attribuent mutuellement une note et un commentaire (facultatif)",
+    title: "Notation",
+    content: <p><FaCheck className=" inline-block text-yellow-500 "/>Le chauffeur et le client s'attribuent mutuellement une note et un commentaire (facultatif).</p>
+  },
+];
+const deliverySteps = [
+  { 
+    id: 1,
+    wizardTitle: "Le client ouvre l'application", // pour le wizard
+    title: "Connexion", // pour le contenu détaillé
+    content: (
+      <div>
         <ul className="list-disc ml-5">
-          <li>Zémidjan</li>
-          <li>Tricycle</li>
-          <li>Voiture</li>
+          <p><FaCheck className=" inline-block text-yellow-500 "/>Remplissez les informations demandées</p>
+          <p><FaCheck className=" inline-block text-yellow-500 "/>Vérifiez votre numéro de téléphone</p>
         </ul>
-      )
-    },
-    { id: 3, title: "Récupération colis", content: <p>Le livreur récupère le colis.</p> },
-    { id: 4, title: "Conduite", content: <p>Le livreur conduit le colis à destination.</p> },
-    { id: 5, title: "Livraison finale", content: <p>La livraison à destination.</p> },
-    { id: 6, title: "Notation", content: <p>Le livreur et le client s'attribuent mutuellement une note et un commentaire (facultatif).</p> },
-  ];
+        <p className="list-disc ml-5"><FaCheck className=" inline-block text-yellow-500 "/>Connectez-vous ensuite pour accéder à Takci.</p>
+      </div>
+    )
+  },
+  { 
+    id: 2, 
+    wizardTitle: "Le client est mis en relation avec un chauffeur",
+    title: "Type de livraison",
+    content: (
+      <ul className="list-disc ml-5">
+        <p><FaCheck className=" inline-block text-yellow-500 "/>Zémidjan</p>
+        <p><FaCheck className=" inline-block text-yellow-500 "/>Tricycle</p>
+        <p><FaCheck className=" inline-block text-yellow-500 "/>Voiture</p>
+      </ul>
+    )
+  },
+  { 
+    id: 3, 
+    wizardTitle: "Le livreur récupère le colis",
+    title: "Récupération colis",
+    content: <p><FaCheck className=" inline-block text-yellow-500 "/>Le livreur récupère le colis.</p>
+  },
+  { 
+    id: 4, 
+    wizardTitle: "Le livreur conduit le colis à destination",
+    title: "Conduite",
+    content: <p><FaCheck className=" inline-block text-yellow-500 "/>Le livreur conduit le colis à destination.</p>
+  },
+  { 
+    id: 5, 
+    wizardTitle: "Livraison finale",
+    title: "Livraison",
+    content: <p><FaCheck className=" inline-block text-yellow-500 "/>La livraison à destination.</p>
+  },
+  { 
+    id: 6, 
+    wizardTitle: "Notation mutuelle",
+    title: "Notation",
+    content: <p><FaCheck className=" inline-block text-yellow-500 "/>Le livreur et le client s'attribuent mutuellement une note et un commentaire (facultatif).</p>
+  },
+];
 
   return (
      <div className="min-h-screen flex flex-col ">
@@ -94,75 +146,7 @@ import Scrolltop from "./Scrolltop";
     
   </div>
 
-  <div className="absolute bottom-0 w-full h-40 overflow-hidden">
-  <svg
-    viewBox="0 0 1200 120" 
-    preserveAspectRatio="none"
-    className="w-full h-full"
-  >
-    {/* Vague supérieure - ondulation douce */}
-    <path
-      d="M-200,100 
-         C-50,80 150,120 350,90 
-         C550,60 750,110 950,80 
-         C1150,50 1350,100 1400,90 
-         L1400,120 
-         L-200,120 Z"
-      className="fill-white opacity-30"
-    />
-    
-    {/* Vague intermédiaire - ondulation moyenne */}
-    <path
-      d="M-200,108 
-         C-50,95 150,125 350,105 
-         C550,85 750,115 950,100 
-         C1150,85 1350,110 1400,100 
-         L1400,120 
-         L-200,120 Z"
-      className="fill-white opacity-60"
-    />
-    
-    {/* Vague principale - ondulation marquée */}
-    <path
-      d="M-200,112 
-         C-50,108 150,122 350,115 
-         C550,108 750,120 950,115 
-         C1150,110 1350,118 1400,115 
-         L1400,120 
-         L-200,120 Z"
-      className="fill-white"
-    />
-  </svg>
-
-  <style jsx>{`
-    path {
-      shape-rendering: geometricPrecision;
-    }
-    path:nth-child(1) {
-      animation: waveFlow 16s cubic-bezier(0.4,0,0.2,1) -3s infinite;
-    }
-    path:nth-child(2) {
-      animation: waveFlow 14s cubic-bezier(0.4,0,0.2,1) -1s infinite;
-    }
-    path:nth-child(3) {
-      animation: waveFlow 12s cubic-bezier(0.4,0,0.2,1) infinite;
-    }
-    @keyframes waveFlow {
-      0%, 100% { 
-        transform: translateX(0) translateY(0);
-      }
-      25% { 
-        transform: translateX(-2%) translateY(-2px);
-      }
-      50% { 
-        transform: translateX(-4%) translateY(0);
-      }
-      75% { 
-        transform: translateX(-2%) translateY(2px);
-      }
-    }
-  `}</style>
-</div>
+  <VagueAnimee />
 </section>
       {/* POURQUOI CHOISIR */}
       <section className="bg-blue-50 py-8 px-6 mt-12 ">
@@ -176,29 +160,48 @@ import Scrolltop from "./Scrolltop";
   </div>
 </section>
 
-      {/* ETAPES COURSE */}
-      <section className="py-12 bg-white">
+   {/* ETAPES COURSE */}
+<section className="py-12 bg-white" id="details">
   <div className="max-w-6xl mx-auto px-4">
-    <h2 className="text-3xl font-bold text-center mb-8">
-      Comment effectuer une course sur Takci ?
+    <h2 className="text-3xl font-bold text-center mb-10">
+      Comment effectuer une course sur <span className="text-blue-700">Takci</span> ?
     </h2>
 
-    {/* Boutons pour étapes */}
-    <div className="flex flex-wrap justify-center gap-4 mb-6">
-      {courseSteps.map((step) => (
-        <button
-          key={step.id}
-          onClick={() => setActiveCourseStep(step.id)}
-          className={`w-12 h-12 rounded-full text-white font-bold ${
-            activeCourseStep === step.id ? "bg-yellow-500" : "bg-gray-400"
-          }`}
-        >
-          {step.id}
-        </button>
-      ))}
+  {/* Wizard horizontal */}
+<div className="flex justify-between items-start relative mb-12">
+  {/* Étapes */}
+  {courseSteps.map((step) => (
+    <div
+      key={step.id}
+      className="flex flex-col items-center w-1/5 cursor-pointer"
+      onClick={() => setActiveCourseStep(step.id)}
+    >
+      {/* Cercle numéroté */}
+      <div
+        className={`w-12 h-12 flex items-center justify-center rounded-full text-white text-lg font-semibold transition-all duration-300 ${
+          activeCourseStep === step.id
+            ? "bg-blue-600 shadow-lg scale-110"
+            : "bg-gray-400"
+        }`}
+      >
+        {step.id}
+      </div>
+      {/* Titre du wizard */}
+      <p
+        className={`mt-3 text-center text-sm ${
+          activeCourseStep === step.id
+            ? "text-blue-700 font-semibold"
+            : "text-gray-500"
+        }`}
+      >
+        {step.wizardTitle} {/* <-- ici on utilise wizardTitle au lieu de title */}
+      </p>
     </div>
+  ))}
+</div>
 
-    {/* Conteneur unique pour texte + image */}
+
+    {/* Contenu de l’étape active */}
     <div className="bg-gray-50 p-6 rounded-lg shadow flex flex-col md:flex-row items-start gap-8">
       {/* Bloc texte */}
       <div className="md:w-1/2">
@@ -206,20 +209,20 @@ import Scrolltop from "./Scrolltop";
           <h3 className="text-xl font-semibold">
             {courseSteps.find((s) => s.id === activeCourseStep).title}
           </h3>
-          <div className="mt-2 text-gray-700">
+          <div className="mt-3 text-gray-700 leading-relaxed">
             {courseSteps.find((s) => s.id === activeCourseStep).content}
           </div>
         </div>
       </div>
 
       {/* Bloc image */}
-      <div className="md:w-1/2">
-        <div className="p-6 rounded-lg shadow bg-white sticky top-8">
-          <h2 className="text-xl font-bold mb-4">Interface originale</h2>
+      <div className="md:w-1/2 p-6 rounded-lg shadow bg-white sticky top-8">
+        <div className="">
+          
           <img
             src="/assets/img/im1.png"
-            alt="Capture d'écran de l'interface TAKCI"
-            className="w-full h-auto border border-gray-200 rounded object-cover"
+            alt="Interface Takci"
+            className="w-full h-auto rounded border border-gray-200 object-cover"
           />
         </div>
       </div>
@@ -227,59 +230,77 @@ import Scrolltop from "./Scrolltop";
   </div>
 </section>
 
+{/* ETAPES LIVRAISON */}
+<section className="py-12 bg-gray-50">
+  <div className="max-w-6xl mx-auto px-4">
+    <h2 className="text-3xl font-bold text-center mb-10">
+      Comment effectuer une livraison sur <span className="text-blue-700">Takci</span> ?
+    </h2>
 
-
-
-      {/* ETAPES LIVRAISON */}
-      <section className="py-12 bg-gray-100">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">
-            Comment effectuer une livraison sur Takci ?
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
-            {deliverySteps.map((step) => (
-              <button
-                key={step.id}
-                onClick={() => setActiveDeliveryStep(step.id)}
-                className={`w-12 h-12 rounded-full text-white font-bold ${
-                  activeDeliveryStep === step.id ? "bg-yellow-500" : "bg-gray-400"
-                }`}
-              >
-                {step.id}
-              </button>
-            ))}
-        <div className="bg-white p-6 rounded-lg shadow flex flex-col md:flex-row items-start gap-8">
-  {/* Bloc texte */}
-  <div className="md:w-1/2">
-    <div className="bg-white p-6 rounded-lg shadow">
-      <h3 className="text-xl font-semibold">
-        {deliverySteps.find(s => s.id === activeDeliveryStep).title}
-      </h3>
-      <p className="mt-2 text-gray-700">
-        {deliverySteps.find(s => s.id === activeDeliveryStep).content}
+    {/* Wizard horizontal */}
+    <div className="flex justify-between items-start relative mb-12">
+      {/* Étapes */}
+      {deliverySteps.map((step) => (
+        <div
+          key={step.id}
+          className="flex flex-col items-center w-1/6 cursor-pointer"
+          onClick={() => setActiveDeliveryStep(step.id)}
+        >
+          {/* Cercle numéroté */}
+          <div
+            className={`w-12 h-12 flex items-center justify-center rounded-full text-white text-lg font-semibold transition-all duration-300 ${
+              activeDeliveryStep === step.id
+                ? "bg-blue-600 shadow-lg scale-110"
+                : "bg-gray-400"
+            }`}
+          >
+             {step.id}
+      </div>
+      {/* Titre du wizard */}
+      <p
+        className={`mt-3 text-center text-sm ${
+          activeCourseStep === step.id
+            ? "text-blue-700 font-semibold"
+            : "text-gray-500"
+        }`}
+      >
+        {step.wizardTitle} {/* <-- ici on utilise wizardTitle au lieu de title */}
       </p>
     </div>
-  </div>
-
-  {/* Bloc image */}
-  <div className="md:w-1/2">
-    <div className="bg-white p-6 rounded-lg shadow sticky top-8">
-      <h2 className="text-xl font-bold mb-4">Interface originale</h2>
-      <img
-        src="/assets/img/im1.png"
-        alt="Capture d'écran de l'interface TAKCI"
-        className="w-full h-auto border border-gray-200 rounded object-cover"
-      />
+  ))}
+</div>
+    {/* Contenu de l’étape active */}
+    <div className="bg-white p-6 rounded-lg shadow flex flex-col md:flex-row items-start gap-8">
+      {/* Bloc texte */}
+      <div className="md:w-1/2 bg-white p-6 rounded-lg shadow">
+        <div className="">
+          <h3 className="text-xl font-semibold">
+            {deliverySteps.find((s) => s.id === activeDeliveryStep).title}
+          </h3>
+          <div className="mt-3 text-gray-700 leading-relaxed">
+            {deliverySteps.find((s) => s.id === activeDeliveryStep).content}
+            
+          </div>
+             
+        </div>
+      </div>
+               {/* Bloc image */}
+      <div className="md:w-1/2 bg-white p-6 rounded-lg shadow sticky top-8">
+    
+         
+          <img
+            src="/assets/img/im1.png"
+            alt="Interface Takci"
+            className="w-full h-auto rounded border border-gray-200 object-cover"
+          />
+      
+      </div>
+     
     </div>
   </div>
-</div>
+</section>
 
 
-        </div>
-            
-          
-        </div>
-      </section>
 
       {/* Footer intégré après la recherche */}
        <Footerpage/>

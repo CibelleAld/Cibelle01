@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function FooterComponent() {
+export default function Footerpaget() {
   const footerLinks = [
     {
       title: "Takci Pro",
@@ -11,12 +11,13 @@ export default function FooterComponent() {
       ]
     },
     {
-      title: "Utilisateur",
+        title: "Utilisateur",
       links: [
         { href: "/utilisateur", label: "Se déplacer avec Takci" },
         { href: "/conditions", label: "Conditions générales d'utilisation" }
       ]
     },
+
     {
       title: "Contacts",
       links: [
