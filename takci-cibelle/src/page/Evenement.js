@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import {FaPhone} from "react-icons/fa";
 import Headerpage from "./Headerpage";
-import Footerpage from "./Footerpage"
+import Footerpage from "./Footerpage";
+import Scrolltop from "./Scrolltop";
 
 
 function Evenement() {
@@ -37,7 +38,7 @@ function Evenement() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col  bg-blue-900 ">
+    <div className="min-h-screen flex flex-col  bg-blue-900  ">
       {/* Header */}
       <Headerpage />
 
@@ -99,6 +100,7 @@ function Evenement() {
        {/* Footer */}
        {/* Footer intégré après la recherche */}
        <Footerpage />
+       <Scrolltop />
     </div>
     
   );

@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route,Navigate} from "react-router-dom"
 import Evenement from "./page/Evenement";
 import Aide from "./page/Aide";
 import Utilisateur from "./page/Utilisateur";
+import Accueil from "./page/Accueil";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
          <Route path ="/evenement" element={<Evenement />} />
          <Route path ="/aide" element={<Aide />} />
          <Route path ="/utilisateur" element={<Utilisateur />} />
+          <Route path ="/accueil" element={<Accueil />} />
        </Routes >
     </Router>
   

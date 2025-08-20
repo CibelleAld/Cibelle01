@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaPhone,FaArrowDown } from "react-icons/fa";
 import Headerpage from "./Headerpage";
 import Footerpage from "./Footerpage";
+import Scrolltop from "./Scrolltop";
 
 
 function Aide() {
@@ -74,27 +75,33 @@ function Aide() {
      <Headerpage />
 
       {/* Hero Section */}
+       
       <main className="bg-gray-900 text-white min-h-screen flex flex-col">
        <section className="relative h-[60vh] flex items-center justify-center text-center ">
         {/* Image en arrière-plan */}
-        
+       
         <img
+       
           src="/assets/img/user_aide.jpg" alt="Utilisateur Takci"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        
+         <div className="absolute inset-0 bg-blue-600/30 z-0" />
       
         <div className="relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-white underline decoration-yellow-500 ">Comment pouvons-nous vous aider</h1>
-           
-          <a href="#details" className="mt-10 inline-block">
-            <div className="absolute w-20 h-20 bg-yellow-400 rounded-full blur-xl opacity-50"></div>
-             <button className="relative w-16 h-16 bg-blue-800 rounded-full flex items-center justify-center text-white">
-                 <FaArrowDown className="text-xl" />
-        </button>   
-      
-          </a>
-        </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-white underline decoration-yellow-500 ">Utilisateur</h1>
+             
+        <a href="#details" className="mt-10 inline-block relative">
+          {/* Halo jaune animé avec pulse de Tailwind */}
+          <div className="absolute w-20 h-20 bg-yellow-400 rounded-full blur-xl opacity-50 -left-2 -top-2 animate-pulse duration-3000"></div>
+          
+          {/* Bouton principal avec animation bounce de Tailwind */}
+          <button className="relative w-16 h-16 bg-blue-800 rounded-full flex items-center justify-center text-white animate-bounce duration-2000">
+            <FaArrowDown className="text-xl" />
+          </button>
+        </a>
+        
+            
+          </div>
         </section>
          {/* Choix de rôle */}
 
@@ -155,6 +162,7 @@ function Aide() {
       
        {/* Footer */}
            <Footerpage />
+            <Scrolltop />
         </main>
     </div>
     
